@@ -1,0 +1,394 @@
+
+#include "ui/menudefinition.h";
+{
+    menuDef
+    {
+        name                      "menu_systemlink"
+        rect                      0 0 640 480 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+        style                     WINDOW_STYLE_FILLED
+        borderSize                1
+        foreColor                 1 1 1 1
+        backColor                 0 0 0 0
+        borderColor               0 0 0 0
+        outlineColor              0 0 0 0
+        fullScreen                1
+        onOpen                    { execnow nosplitscreen ; exec "selectStringTableEntryInDvar mp/didyouknow.csv 0 didyouknow" ; uiScript UpdateFilter ; setfocus serverlist ;  }
+        onESC                     { close menu_systemlink ; setdvar systemlink 0 ; exec splitscreencontrols ;  }
+        soundLoop                 "music_mainmenu_mp"
+        focusColor                1 1 1 1
+        disableColor              0 0 0 0
+        visible 0                 
+        itemDef
+        {
+            rect                      -107 0 854 480 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style                     WINDOW_STYLE_SHADER
+            borderSize                1
+            foreColor                 1 1 1 1
+            backColor                 0 0 0 0
+            borderColor               0 0 0 0
+            outlineColor              0 0 0 0
+            background                "animbg_blur_back"
+            textScale                 0.55
+            visible                   when ( ( dvarstring( "fs_game" ) == "" ) )
+            decoration                
+        }
+        itemDef
+        {
+            rect                      -107 0 1708 480 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style                     WINDOW_STYLE_SHADER
+            borderSize                1
+            foreColor                 1 1 1 1
+            backColor                 0 0 0 0
+            borderColor               0 0 0 0
+            outlineColor              0 0 0 0
+            background                "animbg_blur_fogscroll"
+            textScale                 0.55
+            exp                       rect X ( ( ( - 107 ) - ( ( float( milliseconds( ) % 60000 ) / 60000 ) * ( 854 ) ) ) );
+            visible                   when ( ( dvarstring( "fs_game" ) == "" ) )
+            decoration                
+        }
+        itemDef
+        {
+            rect                      -107 0 854 480 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style                     WINDOW_STYLE_SHADER
+            borderSize                1
+            foreColor                 1 1 1 1
+            backColor                 0 0 0 0
+            borderColor               0 0 0 0
+            outlineColor              0 0 0 0
+            background                "animbg_blur_front"
+            textScale                 0.55
+            visible                   when ( ( dvarstring( "fs_game" ) == "" ) )
+            decoration                
+        }
+        itemDef
+        {
+            rect                      -107 0 854 480 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style                     WINDOW_STYLE_SHADER
+            borderSize                1
+            foreColor                 0.8 0.8 1 1
+            backColor                 0 0 0 0
+            borderColor               0 0 0 0
+            outlineColor              0 0 0 0
+            background                "animbg_blur_back"
+            textScale                 0.55
+            visible                   when ( ( dvarstring( "fs_game" ) != "" ) )
+            decoration                
+        }
+        itemDef
+        {
+            rect                      -107 0 1708 480 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style                     WINDOW_STYLE_SHADER
+            borderSize                1
+            foreColor                 0.8 0.8 1 1
+            backColor                 0 0 0 0
+            borderColor               0 0 0 0
+            outlineColor              0 0 0 0
+            background                "animbg_blur_fogscroll"
+            textScale                 0.55
+            exp                       rect X ( ( ( - 107 ) - ( ( float( milliseconds( ) % 60000 ) / 60000 ) * ( 854 ) ) ) );
+            visible                   when ( ( dvarstring( "fs_game" ) != "" ) )
+            decoration                
+        }
+        itemDef
+        {
+            rect                      -107 0 854 480 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style                     WINDOW_STYLE_SHADER
+            borderSize                1
+            foreColor                 0.8 0.8 1 1
+            backColor                 0 0 0 0
+            borderColor               0 0 0 0
+            outlineColor              0 0 0 0
+            background                "animbg_blur_front"
+            textScale                 0.55
+            visible                   when ( ( dvarstring( "fs_game" ) != "" ) )
+            decoration                
+        }
+        itemDef
+        {
+            rect                      48 40 0 0 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            borderSize                1
+            foreColor                 1 0.8 0.4 1
+            backColor                 0 0 0 0
+            borderColor               0 0 0 0
+            outlineColor              0 0 0 0
+            textFont                  UI_FONT_NORMAL
+            textAlign                 ITEM_ALIGN_TOP_LEFT
+            textAlignX                -36
+            textAlignY                -36
+            textScale                 0.5833
+            textStyle                 ITEM_TEXTSTYLE_SHADOWEDMORE
+            exp                       text ( ( "@PLATFORM_SYSTEM_LINK" ) );
+            visible 1                 
+            decoration                
+        }
+        itemDef
+        {
+            rect                      -120 -32 378 64 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style                     WINDOW_STYLE_SHADER
+            borderSize                1
+            foreColor                 0.9 0.9 0.95 0.175
+            backColor                 0 0 0 0
+            borderColor               0 0 0 0
+            outlineColor              0 0 0 0
+            background                "white"
+            textScale                 0.55
+            visible 1                 
+            decoration                
+        }
+        itemDef
+        {
+            rect                      258 -32 16 -64 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style                     WINDOW_STYLE_SHADER
+            borderSize                1
+            foreColor                 0.9 0.9 0.95 0.175
+            backColor                 0 0 0 0
+            borderColor               0 0 0 0
+            outlineColor              0 0 0 0
+            background                "button_highlight_end"
+            textScale                 0.55
+            visible 1                 
+            decoration                
+        }
+        itemDef
+        {
+            rect                      56 448 528 40 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style                     WINDOW_STYLE_SHADER
+            borderSize                1
+            foreColor                 0.9 0.9 0.95 0.175
+            backColor                 0 0 0 0
+            borderColor               0 0 0 0
+            outlineColor              0 0 0 0
+            background                "white"
+            textScale                 0.55
+            visible 1                 
+            decoration                
+        }
+        itemDef
+        {
+            rect                      584 448 16 64 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style                     WINDOW_STYLE_SHADER
+            borderSize                1
+            foreColor                 0.9 0.9 0.95 0.175
+            backColor                 0 0 0 0
+            borderColor               0 0 0 0
+            outlineColor              0 0 0 0
+            background                "button_highlight_end"
+            textScale                 0.55
+            visible 1                 
+            decoration                
+        }
+        itemDef
+        {
+            rect                      40 448 -16 64 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style                     WINDOW_STYLE_SHADER
+            borderSize                1
+            foreColor                 0.9 0.9 0.95 0.175
+            backColor                 0 0 0 0
+            borderColor               0 0 0 0
+            outlineColor              0 0 0 0
+            background                "button_highlight_end"
+            textScale                 0.55
+            visible 1                 
+            decoration                
+        }
+        itemDef
+        {
+            rect                      -120 464 160 32 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style                     WINDOW_STYLE_SHADER
+            borderSize                1
+            foreColor                 0.9 0.9 0.95 0.175
+            backColor                 0 0 0 0
+            borderColor               0 0 0 0
+            outlineColor              0 0 0 0
+            background                "white"
+            textScale                 0.55
+            visible 1                 
+            decoration                
+        }
+        itemDef
+        {
+            rect                      600 464 160 32 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style                     WINDOW_STYLE_SHADER
+            borderSize                1
+            foreColor                 0.9 0.9 0.95 0.175
+            backColor                 0 0 0 0
+            borderColor               0 0 0 0
+            outlineColor              0 0 0 0
+            background                "white"
+            textScale                 0.55
+            visible 1                 
+            decoration                
+        }
+        itemDef
+        {
+            name                      "back"
+            rect                      -250 -26 40 20 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_BOTTOM
+            style                     WINDOW_STYLE_FILLED
+            borderSize                1
+            foreColor                 1 1 1 1
+            backColor                 0 0 0 0
+            borderColor               0 0 0 0
+            outlineColor              0 0 0 0
+            type                      ITEM_TYPE_BUTTON
+            textFont                  UI_FONT_NORMAL
+            textAlignY                18
+            textScale                 0.375
+            textStyle                 ITEM_TEXTSTYLE_SHADOWED
+            text                      "@MENU_BACK"
+            mouseEnter                { play mouse_over ;  }
+            action                    { play mouse_click ; close self ; open main_text ;  }
+            visible                   when ( ( 1 ) )
+        }
+        itemDef
+        {
+            rect                      -304 34 612 18 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_TOP
+            style                     WINDOW_STYLE_SHADER
+            foreColor                 0.9 0.9 0.925 0.5
+            backColor                 0 0 0 0
+            borderColor               0 0 0 0
+            outlineColor              0 0 0 0
+            textScale                 0.55
+            exp                       material ( ( "line_horizontal" ) );
+            visible 1                 
+            decoration                
+        }
+        itemDef
+        {
+            name                      "refresh"
+            rect                      270 438 0 0 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            borderSize                1
+            foreColor                 1 1 1 1
+            backColor                 0 0 0 0
+            borderColor               0 0 0 0
+            outlineColor              0 0 0 0
+            type                      ITEM_TYPE_BUTTON
+            textScale                 0.55
+            execKey                   "" { play mouse_click ; uiScript RefreshServers ;  }
+            visible 1                 
+            decoration                
+        }
+        itemDef
+        {
+            rect                      64 86 0 0 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            borderSize                1
+            foreColor                 1 1 1 0.65
+            backColor                 0 0 0 0
+            borderColor               0 0 0 0
+            outlineColor              0 0 0 0
+            textFont                  UI_FONT_NORMAL
+            textScale                 0.375
+            text                      "@MENU_HOST_NAME"
+            visible 1                 
+            decoration                
+        }
+        itemDef
+        {
+            rect                      268 86 0 0 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            borderSize                1
+            foreColor                 1 1 1 0.65
+            backColor                 0 0 0 0
+            borderColor               0 0 0 0
+            outlineColor              0 0 0 0
+            textFont                  UI_FONT_NORMAL
+            textScale                 0.375
+            text                      "@MENU_MAP_NAME"
+            visible 1                 
+            decoration                
+        }
+        itemDef
+        {
+            rect                      366 86 0 0 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            borderSize                1
+            foreColor                 1 1 1 0.65
+            backColor                 0 0 0 0
+            borderColor               0 0 0 0
+            outlineColor              0 0 0 0
+            textFont                  UI_FONT_NORMAL
+            textScale                 0.375
+            text                      "@MENU_NUMPLAYERS"
+            visible 1                 
+            decoration                
+        }
+        itemDef
+        {
+            rect                      450 86 0 0 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            borderSize                1
+            foreColor                 1 1 1 0.65
+            backColor                 0 0 0 0
+            borderColor               0 0 0 0
+            outlineColor              0 0 0 0
+            textFont                  UI_FONT_NORMAL
+            textScale                 0.375
+            text                      "@MENU_TYPE1"
+            visible 1                 
+            decoration                
+        }
+        itemDef
+        {
+            rect                      262 92 1 318 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style                     WINDOW_STYLE_FILLED
+            borderSize                1
+            foreColor                 1 1 1 1
+            backColor                 1 1 1 0.2
+            borderColor               0 0 0 0
+            outlineColor              0 0 0 0
+            textScale                 0.55
+            visible 1                 
+            decoration                
+        }
+        itemDef
+        {
+            rect                      362 92 1 318 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style                     WINDOW_STYLE_FILLED
+            borderSize                1
+            foreColor                 1 1 1 1
+            backColor                 1 1 1 0.2
+            borderColor               0 0 0 0
+            outlineColor              0 0 0 0
+            textScale                 0.55
+            visible 1                 
+            decoration                
+        }
+        itemDef
+        {
+            rect                      442 92 1 318 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style                     WINDOW_STYLE_FILLED
+            borderSize                1
+            foreColor                 1 1 1 1
+            backColor                 1 1 1 0.2
+            borderColor               0 0 0 0
+            outlineColor              0 0 0 0
+            textScale                 0.55
+            visible 1                 
+            decoration                
+        }
+        itemDef
+        {
+            name                      "serverlist"
+            rect                      36 88 574 324 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style                     WINDOW_STYLE_FILLED
+            borderSize                1
+            foreColor                 0.69 0.69 0.69 1
+            backColor                 0 0 0 0
+            borderColor               0 0 0 0
+            outlineColor              0.9 0.9 0.925 0.2
+            type                      ITEM_TYPE_LISTBOX
+            textFont                  UI_FONT_NORMAL
+            textAlignX                1
+            textScale                 0.375
+            feeder                    FEEDER_SERVERS
+            elementWidth              120
+            elementHeight             18
+            columns  4   26  203  40
+                        229   98  25
+                        327   85  10
+                        412   35  35
+            doubleClick               ""uiScript" "JoinServer" "
+            selectBorder              0.8 0.95 1 0
+            disableColor              0 0 0 0
+            noScrollBars              
+            visible 1                 
+        }
+    }
+}

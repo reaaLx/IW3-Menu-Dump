@@ -1,0 +1,15 @@
+#include "ui/menudefinition.h"
+{
+    menuDef
+    {
+        name "class_marines"
+        borderSize 1
+        foreColor 1 1 1 1
+        onOpen 
+        { 
+            setLocalVarString "ui_team marines" 
+            open "class"; 
+            close "self";
+        }       
+   }
+}

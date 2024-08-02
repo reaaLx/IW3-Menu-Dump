@@ -1,0 +1,35 @@
+
+#include "ui/menudefinition.h";
+{
+    menuDef
+    {
+        name                      "defeat"
+        rect                      0 0 640 480 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+        borderSize                1
+        foreColor                 1 1 1 1
+        backColor                 0 0 0 0
+        borderColor               0 0 0 0
+        outlineColor              0 0 0 0
+        fadeCycle                 1
+        fadeClamp                 1
+        fadeAmount                0.1
+        fadeInAmount              0.002
+        focusColor                0 0 0 0
+        disableColor              0 0 0 0
+        visible 0                 
+        itemDef
+        {
+            borderSize                1
+            foreColor                 1 0 0 1
+            backColor                 0 0 0 0
+            borderColor               0 0 0 0
+            outlineColor              0 0 0 0
+            textFont                  UI_FONT_BIG
+            textAlign                 ITEM_ALIGN_LEGACY_CENTER
+            textScale                 1
+            text                      "DEFEAT"
+            visible 1                 
+            decoration                
+        }
+    }
+}

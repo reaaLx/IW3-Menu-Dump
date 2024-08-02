@@ -1,0 +1,16 @@
+#include "ui/menudefinition.h"
+{
+    menuDef
+    {
+        name "changeclass_marines"
+        borderSize 1
+        foreColor 1 1 1 1
+        onOpen 
+        { 
+            setLocalVarString "ui_team" marines; 
+            uiScript "openMenuOnDvar onlinegame 0 changeclass_offline"; 
+            uiScript "openMenuOnDvar onlinegame 1 changeclass"; 
+            close "self"; 
+        }
+   }
+}

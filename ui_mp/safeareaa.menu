@@ -1,0 +1,13 @@
+#include "ui/menudefinition.h"
+{
+    menuDef
+    {
+        name "safeareaa"
+        rect 0 0 640 480 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+        borderSize 1
+        foreColor 1 1 1 1
+        fadeCycle 1
+        fadeClamp 1
+        fadeAmount 0.1
+   }
+}

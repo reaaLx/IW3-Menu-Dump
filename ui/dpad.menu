@@ -1,0 +1,148 @@
+#include "ui/menudefinition.h"
+{
+    menuDef
+    {
+        name "dpad"
+        rect 0 0 25 25 HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_BOTTOM
+        borderSize 1
+        foreColor 1 1 1 1
+        fadeCycle 1
+        fadeClamp 1
+        fadeAmount 0.1
+        exp rect X ( ( 0 ) )
+        exp rect Y ( ( ( - 6 - 46 ) - ( ( dvarint( "onlinegame" ) && ! dvarint( "xblive_privatematch" ) ) * 10 ) ) )
+        visible when ( ( ! gamemsgwndactive( 2 ) ) && ( dvarbool( "chaplinCheat" ) == 0 ) && dvarbool( "actionSlotsHide" ) == 0 && dvarbool( "hud_missionFailed" ) == 0 && ! inkillcam() && ! flashbanged() && ! ui_active() && ! scoped() && dvarbool( "compass" ) == 1 && ( dvarstring( "createfx" ) != "on" )  )
+        itemDef
+        {
+            name "slot1"
+            ownerDraw CG_PLAYER_ACTIONSLOT_1
+            borderSize 1
+            foreColor 1 1 1 0.65
+            type ITEM_TYPE_OWNERDRAW
+            textFont UI_FONT_OBJECTIVE
+            textScale 0.375
+            textStyle ITEM_TEXTSTYLE_SHADOWED
+            exp rect X ( ( 4 ) )
+            exp rect Y ( ( 16 ) )
+            exp rect W ( ( 28 ) )
+            exp rect H ( ( 28 ) )
+            visible 1  
+            decoration 
+        }
+        itemDef
+        {
+            borderSize 1
+            foreColor 1 1 1 0
+            textFont UI_FONT_OBJECTIVE
+            textScale 0.25
+            textStyle ITEM_TEXTSTYLE_SHADOWED
+            exp text ( ( "[" + keybinding( "+actionslot 1" ) + "]" ) )
+            exp rect X ( ( 0 ) )
+            exp rect Y ( ( 22 ) )
+            exp rect W ( ( 1 ) )
+            exp rect H ( ( 1 ) )
+            exp foreColor A ( ( 0.65 * 1.3 * hudfade( "dpad" ) ) )
+            visible when ( ( actionslotusable( 1 ) ) )
+            decoration 
+        }
+        itemDef
+        {
+            name "slot2"
+            ownerDraw CG_PLAYER_ACTIONSLOT_2
+            borderSize 1
+            foreColor 1 1 1 0.65
+            type ITEM_TYPE_OWNERDRAW
+            textFont UI_FONT_OBJECTIVE
+            textScale 0.375
+            textStyle ITEM_TEXTSTYLE_SHADOWED
+            exp rect X ( ( 4 ) )
+            exp rect Y ( ( 16 - 34 * ( actionslotusable( 1 ) ) ) )
+            exp rect W ( ( 28 ) )
+            exp rect H ( ( 28 ) )
+            visible 1  
+            decoration 
+        }
+        itemDef
+        {
+            borderSize 1
+            foreColor 1 1 1 0
+            textFont UI_FONT_OBJECTIVE
+            textScale 0.25
+            textStyle ITEM_TEXTSTYLE_SHADOWED
+            exp text ( ( "[" + keybinding( "+actionslot 2" ) + "]" ) )
+            exp rect X ( ( 0 ) )
+            exp rect Y ( ( 22 - 34 * ( actionslotusable( 1 ) ) ) )
+            exp rect W ( ( 1 ) )
+            exp rect H ( ( 1 ) )
+            exp foreColor A ( ( 0.65 * 1.3 * hudfade( "dpad" ) ) )
+            visible when ( ( actionslotusable( 2 ) ) )
+            decoration 
+        }
+        itemDef
+        {
+            name "slot3"
+            ownerDraw CG_PLAYER_ACTIONSLOT_4
+            borderSize 1
+            foreColor 1 1 1 0.65
+            type ITEM_TYPE_OWNERDRAW
+            textFont UI_FONT_OBJECTIVE
+            textScale 0.375
+            textStyle ITEM_TEXTSTYLE_SHADOWED
+            exp rect X ( ( 4 ) )
+            exp rect Y ( ( 16 - 34 * ( actionslotusable( 1 ) + actionslotusable( 2 ) ) ) )
+            exp rect W ( ( 28 ) )
+            exp rect H ( ( 28 ) )
+            visible 1  
+            decoration 
+        }
+        itemDef
+        {
+            borderSize 1
+            foreColor 1 1 1 1
+            textFont UI_FONT_OBJECTIVE
+            textScale 0.25
+            textStyle ITEM_TEXTSTYLE_SHADOWED
+            exp text ( ( "[" + keybinding( "+actionslot 4" ) + "]" ) )
+            exp rect X ( ( 0 ) )
+            exp rect Y ( ( 22 - 34 * ( actionslotusable( 1 ) + actionslotusable( 2 ) ) ) )
+            exp rect W ( ( 1 ) )
+            exp rect H ( ( 1 ) )
+            exp foreColor A ( ( 0.65 * 1.3 * hudfade( "dpad" ) ) )
+            visible when ( ( actionslotusable( 4 ) ) )
+            decoration 
+        }
+        itemDef
+        {
+            name "slot4"
+            ownerDraw CG_PLAYER_ACTIONSLOT_3
+            borderSize 1
+            foreColor 1 1 1 0.65
+            type ITEM_TYPE_OWNERDRAW
+            textFont UI_FONT_OBJECTIVE
+            textScale 0.375
+            textStyle ITEM_TEXTSTYLE_SHADOWED
+            exp rect X ( ( 4 ) )
+            exp rect Y ( ( 16 - 34 * ( actionslotusable( 1 ) + actionslotusable( 2 ) + actionslotusable( 3 ) ) ) )
+            exp rect W ( ( 28 ) )
+            exp rect H ( ( 28 ) )
+            visible 1  
+            decoration 
+        }
+        itemDef
+        {
+            borderSize 1
+            foreColor 1 1 1 0
+            textFont UI_FONT_OBJECTIVE
+            textScale 0.25
+            textStyle ITEM_TEXTSTYLE_SHADOWED
+            exp text ( ( "[" + keybinding( "+actionslot 3" ) + "]" ) )
+            exp rect X ( ( 0 ) )
+            exp rect Y ( ( 22 - 34 * ( actionslotusable( 1 ) + actionslotusable( 2 ) + actionslotusable( 3 ) ) ) )
+            exp rect W ( ( 1 ) )
+            exp rect H ( ( 1 ) )
+            exp foreColor A ( ( 0.65 * 1.3 * hudfade( "dpad" ) ) )
+            visible when ( ( actionslotusable( 3 ) ) )
+            decoration 
+        }
+    }
+}

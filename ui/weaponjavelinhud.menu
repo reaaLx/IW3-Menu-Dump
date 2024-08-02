@@ -1,0 +1,173 @@
+#include "ui/menudefinition.h"
+{
+    menuDef
+    {
+        name "weaponjavelinhud"
+        rect 0 0 960 480 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+        borderSize 1
+        foreColor 1 1 1 1
+        fadeCycle 1
+        fadeClamp 1
+        fadeAmount 0.1
+        visible when ( ( adsjavelin() ) )
+        itemDef
+        {
+            name "WeaponJavelinTargets"
+            rect -320 -240 640 480 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            ownerDraw CG_HUD_TARGETS_JAVELIN
+            borderSize 1
+            foreColor 1 1 1 1
+            background "white"
+            type ITEM_TYPE_OWNERDRAW
+            textScale 0.55
+            visible 1  
+            decoration 
+        }
+        itemDef
+        {
+            name "javelinlockbox"
+            rect -80 -40 160 80 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style WINDOW_STYLE_SHADER
+            borderSize 1
+            foreColor 1 1 1 1
+            background "hud_javelin_lock_box"
+            textScale 0.55
+            visible when ( ( weaplockblink( 11 ) ) )
+            decoration 
+        }
+        itemDef
+        {
+            name "javelinfilmgrain"
+            rect -230 -125 460 260 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style WINDOW_STYLE_SHADER
+            borderSize 1
+            foreColor 1 1 1 1
+            background "javelin_overlay_grain"
+            textScale 0.55
+            visible 1  
+            decoration 
+        }
+        itemDef
+        {
+            name "WeaponJavelinBG"
+            rect -427 -240 854 480 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style WINDOW_STYLE_SHADER
+            borderSize 1
+            foreColor 1 1 1 1
+            background "hud_javelin_bg"
+            textScale 0.55
+            visible 1  
+            decoration 
+        }
+        itemDef
+        {
+            name "javelinlockon"
+            rect 154 -198 64 64 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style WINDOW_STYLE_SHADER
+            borderSize 1
+            foreColor 1 1 1 1
+            background "hud_javelin_lock_on"
+            textScale 0.55
+            visible when ( ( weaplockblink( 4.5 ) ) )
+            decoration 
+        }
+        itemDef
+        {
+            name "javelincluon"
+            rect -300 -28 64 64 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style WINDOW_STYLE_SHADER
+            borderSize 1
+            foreColor 1 1 1 1
+            background "hud_javelin_clu_on"
+            textScale 0.55
+            visible when ( ( weaplockblink( 0 ) && ! weapattacktop() && ! weapattackdirect() ) )
+            decoration 
+        }
+        itemDef
+        {
+            name "javelintopoff"
+            rect 228 -124 64 64 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style WINDOW_STYLE_SHADER
+            borderSize 1
+            foreColor 1 1 1 1
+            background "hud_javelin_top_on"
+            textScale 0.55
+            visible when ( ( weapattacktop() ) )
+            decoration 
+        }
+        itemDef
+        {
+            name "javelindiroff"
+            rect 228 -28 64 64 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style WINDOW_STYLE_SHADER
+            borderSize 1
+            foreColor 1 1 1 1
+            background "hud_javelin_dir_on"
+            textScale 0.55
+            visible when ( ( weapattackdirect() ) )
+            decoration 
+        }
+        itemDef
+        {
+            name "javelinday"
+            rect -226 -198 64 64 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style WINDOW_STYLE_SHADER
+            borderSize 1
+            foreColor 1 1 1 1
+            background "hud_javelin_day_on"
+            textScale 0.55
+            visible when ( ( ! player( "nightvision" ) ) )
+            decoration 
+        }
+        itemDef
+        {
+            name "javelinnight"
+            rect -300 -125 64 64 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style WINDOW_STYLE_SHADER
+            borderSize 1
+            foreColor 1 1 1 1
+            background "hud_javelin_night_on"
+            textScale 0.55
+            visible when ( ( player( "nightvision" ) ) )
+            decoration 
+        }
+        itemDef
+        {
+            name "javelinrocket_on"
+            rect 30 144 64 64 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style WINDOW_STYLE_SHADER
+            borderSize 1
+            foreColor 1 1 1 1
+            background "hud_javelin_rocket_on"
+            textScale 0.55
+            visible when ( ( player( "clipammo" ) ) )
+            decoration 
+        }
+        itemDef
+        {
+            name "javelinnorocket_on"
+            rect 154 144 64 64 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style WINDOW_STYLE_SHADER
+            borderSize 1
+            foreColor 1 1 1 1
+            background "hud_javelin_norocket_on"
+            textScale 0.55
+            visible when ( ( ! player( "clipammo" ) ) )
+            decoration 
+        }
+        itemDef
+        {
+            name "chRect"
+            rect 0 -90 0 0 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+            ownerDraw CG_INVALID_CMD_HINT
+            borderSize 1
+            foreColor 1 1 1 1
+            type ITEM_TYPE_OWNERDRAW
+            textFont UI_FONT_OBJECTIVE
+            textScale 0.4583
+            textStyle ITEM_TEXTSTYLE_SHADOWED
+            visible 1  
+            decoration 
+         }
+    }
+}

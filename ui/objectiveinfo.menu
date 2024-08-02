@@ -1,0 +1,133 @@
+#include "ui/menudefinition.h"
+{
+    menuDef
+    {
+        name "objectiveinfo"
+        rect 0 0 640 480 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+        borderSize 1
+        foreColor 1 1 1 1
+        focusColor 1 1 1 1
+        itemDef
+        {
+            rect 48 68 0 0 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            ownerDraw CG_MISSION_OBJECTIVE_HEADER
+            borderSize 1
+            foreColor 1 0.8 0.4 1
+            type ITEM_TYPE_OWNERDRAW
+            textFont UI_FONT_NORMAL
+            textAlign ITEM_ALIGN_TOP_LEFT
+            textScale 0.5833
+            visible when ( ( dvarstring( "credits_active" ) != "1" && dvarstring( "mapname" ) != "coup" && dvarstring( "mapname" ) != "aftermath" ) )
+            decoration 
+        }
+        itemDef
+        {
+            name "objectivecheckbox"
+            rect 55 99 16 16 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            ownerDraw CG_MISSION_OBJECTIVE_LIST
+            borderSize 1
+            foreColor 1 1 1 1
+            type ITEM_TYPE_OWNERDRAW
+            textScale 0.38
+            textStyle ITEM_TEXTSTYLE_SHADOWED
+            visible when ( ( dvarstring( "mapname" ) != "coup" && dvarstring( "mapname" ) != "aftermath" ) )
+            decoration 
+        }
+        itemDef
+        {
+            rect -150 230 130 120 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+            ownerDraw CG_PLAYER_COMPASS_MAP
+            borderSize 1
+            foreColor 1 1 1 1
+            background "compass_map_default"
+            type ITEM_TYPE_OWNERDRAW
+            textScale 0.55
+            visible when ( ( ! dvarbool( "ui_hidemap" ) && dvarstring( "mapname" ) != "coup" && dvarstring( "mapname" ) != "aftermath" && dvarstring( "mapname" ) != "airplane" && dvarstring( "mapname" ) != "ac130" && dvarstring( "mapname" ) != "jeepride" && dvarstring( "mapname" ) != "simplecredits" ) )
+            decoration 
+        }
+        itemDef
+        {
+            rect -150 230 130 120 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+            ownerDraw CG_PLAYER_COMPASS_TANKS
+            borderSize 1
+            foreColor 1 1 1 1
+            background "hud_objective_tank"
+            type ITEM_TYPE_OWNERDRAW
+            textScale 0.55
+            visible when ( ( ! dvarbool( "ui_hidemap" ) && dvarstring( "mapname" ) != "coup" && dvarstring( "mapname" ) != "aftermath" && dvarstring( "mapname" ) != "airplane" && dvarstring( "mapname" ) != "ac130" && dvarstring( "mapname" ) != "jeepride" && dvarstring( "mapname" ) != "simplecredits" ) )
+            decoration 
+        }
+        itemDef
+        {
+            rect -150 230 130 120 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+            ownerDraw CG_PLAYER_COMPASS_AUTOMOBILES
+            borderSize 1
+            foreColor 1 1 1 1
+            background "white"
+            type ITEM_TYPE_OWNERDRAW
+            textScale 0.55
+            visible when ( ( ! dvarbool( "ui_hidemap" ) && dvarstring( "mapname" ) != "coup" && dvarstring( "mapname" ) != "aftermath" && dvarstring( "mapname" ) != "airplane" && dvarstring( "mapname" ) != "ac130" && dvarstring( "mapname" ) != "jeepride" && dvarstring( "mapname" ) != "simplecredits" ) )
+            decoration 
+        }
+        itemDef
+        {
+            rect -150 230 130 120 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+            ownerDraw CG_PLAYER_COMPASS_PLANES
+            borderSize 1
+            foreColor 1 1 1 1
+            background "compass_objpoint_airstrike"
+            type ITEM_TYPE_OWNERDRAW
+            textScale 0.55
+            visible when ( ( ! dvarbool( "ui_hidemap" ) && dvarstring( "mapname" ) != "coup" && dvarstring( "mapname" ) != "aftermath" && dvarstring( "mapname" ) != "airplane" && dvarstring( "mapname" ) != "ac130" && dvarstring( "mapname" ) != "jeepride" && dvarstring( "mapname" ) != "simplecredits" ) )
+            decoration 
+        }
+        itemDef
+        {
+            rect -150 230 130 120 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+            ownerDraw CG_PLAYER_COMPASS_HELICOPTERS
+            borderSize 1
+            foreColor 1 1 1 1
+            background "compass_objpoint_helicopter"
+            type ITEM_TYPE_OWNERDRAW
+            textScale 0.55
+            visible when ( ( ! dvarbool( "ui_hidemap" ) && dvarstring( "mapname" ) != "coup" && dvarstring( "mapname" ) != "aftermath" && dvarstring( "mapname" ) != "airplane" && dvarstring( "mapname" ) != "ac130" && dvarstring( "mapname" ) != "jeepride" && dvarstring( "mapname" ) != "simplecredits" ) )
+            decoration 
+        }
+        itemDef
+        {
+            rect -150 230 130 120 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+            ownerDraw CG_PLAYER_COMPASS_ACTORS
+            borderSize 1
+            foreColor 1 1 1 1
+            background "compassping_friendly"
+            type ITEM_TYPE_OWNERDRAW
+            textScale 0.55
+            visible when ( ( ! dvarbool( "ui_hidemap" ) && dvarstring( "mapname" ) != "coup" && dvarstring( "mapname" ) != "aftermath" && dvarstring( "mapname" ) != "airplane" && dvarstring( "mapname" ) != "ac130" && dvarstring( "mapname" ) != "jeepride" && dvarstring( "mapname" ) != "simplecredits" ) )
+            decoration 
+        }
+        itemDef
+        {
+            rect -150 230 130 120 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+            ownerDraw CG_PLAYER_COMPASS_PLAYER
+            borderSize 1
+            foreColor 1 1 1 1
+            background "compassping_player"
+            type ITEM_TYPE_OWNERDRAW
+            textScale 0.55
+            visible when ( ( ! dvarbool( "ui_hidemap" ) && dvarstring( "mapname" ) != "coup" && dvarstring( "mapname" ) != "aftermath" && dvarstring( "mapname" ) != "airplane" && dvarstring( "mapname" ) != "ac130" && dvarstring( "mapname" ) != "jeepride" && dvarstring( "mapname" ) != "simplecredits" ) )
+            decoration 
+        }
+        itemDef
+        {
+            rect -150 230 130 120 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+            ownerDraw CG_PLAYER_COMPASS_POINTERS
+            borderSize 1
+            foreColor 1 1 1 1
+            background "objective_line"
+            type ITEM_TYPE_OWNERDRAW
+            textScale 0.55
+            visible when ( ( ! dvarbool( "ui_hidemap" ) && dvarstring( "mapname" ) != "coup" && dvarstring( "mapname" ) != "aftermath" && dvarstring( "mapname" ) != "airplane" && dvarstring( "mapname" ) != "ac130" && dvarstring( "mapname" ) != "jeepride" && dvarstring( "mapname" ) != "simplecredits" ) )
+            decoration 
+         }
+    }
+}

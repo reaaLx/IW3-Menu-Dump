@@ -1,0 +1,27 @@
+{
+    loadMenu { "ui/facemaskoverlay.menu" }
+    loadMenu { "ui/mantlehint.menu" }
+    loadMenu { "ui/cursorhints.menu" }
+    loadMenu { "ui/stance.menu" }
+    loadMenu { "ui/sprintmeter.menu" }
+    loadMenu { "ui/weaponinfo.menu" }
+    loadMenu { "ui/compass.menu" }
+    loadMenu { "ui/dpad.menu" }
+    loadMenu { "ui/tankstatus.menu" }
+    loadMenu { "ui/deadscreen.menu" }
+    loadMenu { "ui/holdbreathhint.menu" }
+    loadMenu { "ui/savingicon.menu" }
+    loadMenu { "ui/invalidcmdhint.menu" }
+    loadMenu { "ui/vehiclehud.menu" }
+    loadMenu { "ui/weaponjavelinhud.menu" }
+    loadMenu { "ui/gamemessages.menu" }
+    loadMenu { "ui/boldgamemessages.menu" }
+    loadMenu { "ui/subtitles.menu" }
+    loadMenu { "ui/subtitles_chaplin.menu" }
+    loadMenu { "ui/missionobjective.menu" }
+    loadMenu { "ui/safearea.menu" }
+    loadMenu { "ui/pausedmenu.menu" }
+    loadMenu { "ui/pausedbkgnd.menu" }
+    loadMenu { "ui/objectiveinfo.menu" }
+    loadMenu { "ui/overheadmap.menu" }
+}

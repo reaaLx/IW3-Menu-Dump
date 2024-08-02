@@ -1,0 +1,272 @@
+#include "ui/menudefinition.h"
+{
+    menuDef
+    {
+        name "pausedmenu"
+        rect 0 0 640 480 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+        borderSize 1
+        foreColor 1 1 1 1
+        allowedBinding "pause"
+        focusColor 1 1 1 1
+        onOpen
+        {
+        	showMenu "pausedbkgnd";
+            showMenu "objectiveinfo";
+            showMenu "overheadmap"; 
+            focusfirst;
+            nosavehide "saveandquit";
+            saveAvailableHide "quit";
+        }
+        onClose
+        {
+        	hideMenu "pausedbkgnd";
+            hideMenu "objectiveinfo";
+            hideMenu "overheadmap";
+        }
+        onESC
+        {
+        	close "pausedmenu";
+        }
+        itemDef
+        {
+            name "pausedMsg"
+            rect -150 40 120 20 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_SUBTOP
+            borderSize 1
+            foreColor 1 0.8 0.4 1
+            textAlign ITEM_ALIGN_TOP_LEFT
+            textScale 0.5833
+            text "@MENU_PAUSED_CAP"
+            visible 1  
+            decoration 
+        }
+        itemDef
+        {
+            name "resumegame"
+            rect -150 84 120 20 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_SUBTOP
+            borderSize 1
+            foreColor 0.4823 0.4823 0.4823 1
+            type ITEM_TYPE_BUTTON
+            textAlign ITEM_ALIGN_TOP_LEFT
+            textAlignY -2
+            textScale 0.4583
+            textStyle ITEM_TEXTSTYLE_SHADOWED
+            text "@MENU_RESUME_CREDITS"
+            visible when ( ( dvarstring( "credits_active" ) == "1" ) )
+            action
+            {
+            	play "mouse_click";
+            	close "pausedmenu";
+            }
+            onFocus
+            {
+            	play "mouse_over";
+            }
+        }
+        itemDef
+        {
+            name "resumegame"
+            rect -150 84 120 20 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_SUBTOP
+            borderSize 1
+            foreColor 0.4823 0.4823 0.4823 1
+            type ITEM_TYPE_BUTTON
+            textAlign ITEM_ALIGN_TOP_LEFT
+            textAlignY -2
+            textScale 0.4583
+            textStyle ITEM_TEXTSTYLE_SHADOWED
+            text "@MENU_RESUMEGAME"
+            visible when ( ( dvarstring( "credits_active" ) != "1" ) )
+            action
+            {
+            	play "mouse_click";
+            	close "pausedmenu";
+            }
+            onFocus
+            {
+            	play "mouse_over";
+            }
+        }
+        itemDef
+        {
+            name "credits_quit"
+            rect -150 104 120 20 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_SUBTOP
+            borderSize 1
+            foreColor 0.4823 0.4823 0.4823 1
+            type ITEM_TYPE_BUTTON
+            textAlign ITEM_ALIGN_TOP_LEFT
+            textAlignY -2
+            textScale 0.4583
+            textStyle ITEM_TEXTSTYLE_SHADOWED
+            text "@PLATFORM_QUIT"
+            visible when ( ( dvarstring( "credits_active" ) == "1" ) )
+            action
+            {
+            	play "mouse_click";
+            	setdvar "credits_active" 0;
+            	close "pausedmenu";
+            	exec "disconnect";
+            }
+            onFocus
+            {
+            	play "mouse_over";
+            }
+        }
+        itemDef
+        {
+            rect -150 104 120 20 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_SUBTOP
+            borderSize 1
+            foreColor 0.4823 0.4823 0.4823 1
+            type ITEM_TYPE_BUTTON
+            textAlign ITEM_ALIGN_TOP_LEFT
+            textAlignY -2
+            textScale 0.4583
+            textStyle ITEM_TEXTSTYLE_SHADOWED
+            text "@MENU_CONTROLS"
+            visible when ( ( dvarstring( "credits_active" ) != "1" ) )
+            action
+            {
+            	play "mouse_click";
+            	open "options_look";
+            	close "pausedmenu";
+            }
+            onFocus
+            {
+            	play "mouse_over";
+            }
+        }
+        itemDef
+        {
+            rect -150 124 120 20 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_SUBTOP
+            borderSize 1
+            foreColor 0.4823 0.4823 0.4823 1
+            type ITEM_TYPE_BUTTON
+            textAlign ITEM_ALIGN_TOP_LEFT
+            textAlignY -2
+            textScale 0.4583
+            textStyle ITEM_TEXTSTYLE_SHADOWED
+            text "@MENU_OPTIONS"
+            visible when ( ( dvarstring( "credits_active" ) != "1" ) )
+            action
+            {
+            	play "mouse_click";
+            	execnow "set ui_allow_graphic_change 1";
+            	open "main_options";
+            	close "pausedmenu";
+            }
+            onFocus
+            {
+            	play "mouse_over";
+            }
+        }
+        itemDef
+        {
+            name "restartlevel"
+            rect -150 144 120 20 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_SUBTOP
+            borderSize 1
+            foreColor 0.4823 0.4823 0.4823 1
+            type ITEM_TYPE_BUTTON
+            textAlign ITEM_ALIGN_TOP_LEFT
+            textAlignY -2
+            textScale 0.4583
+            textStyle ITEM_TEXTSTYLE_SHADOWED
+            text "@MENU_RESTART_LEVEL"
+            visible when ( ( dvarstring( "credits_active" ) != "1" && ! dvarbool( "arcademode" ) ) )
+            action
+            {
+            	play "mouse_click";
+            	close "pausedmenu";
+            	open "restart_warning";
+            }
+            onFocus
+            {
+            	play "mouse_over";
+            }
+        }
+        itemDef
+        {
+            name "restartlevel_locked"
+            rect -150 144 120 20 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_SUBTOP
+            borderSize 1
+            foreColor 0.3 0.3 0.3 1
+            type ITEM_TYPE_BUTTON
+            textAlign ITEM_ALIGN_TOP_LEFT
+            textAlignY -2
+            textScale 0.4583
+            textStyle ITEM_TEXTSTYLE_SHADOWED
+            text "@MENU_RESTART_LEVEL"
+            visible when ( ( dvarstring( "credits_active" ) != "1" && dvarbool( "arcademode" ) ) )
+            decoration 
+        }
+        itemDef
+        {
+            name "saveandquit"
+            rect -150 164 120 20 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_SUBTOP
+            borderSize 1
+            foreColor 0.4823 0.4823 0.4823 1
+            type ITEM_TYPE_BUTTON
+            textAlign ITEM_ALIGN_TOP_LEFT
+            textAlignY -2
+            textScale 0.4583
+            textStyle ITEM_TEXTSTYLE_SHADOWED
+            text "@PLATFORM_SAVE_AND_QUIT"
+            visible when ( ( dvarstring( "credits_active" ) != "1" && ! dvarbool( "arcademode" ) ) )
+            action
+            {
+            	play "mouse_click";
+            	close "pausedmenu";
+            	open "savegame_warning";
+            }
+            onFocus
+            {
+            	play "mouse_over";
+            }
+        }
+        itemDef
+        {
+            name "arcade_quit"
+            rect -150 164 120 20 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_SUBTOP
+            borderSize 1
+            foreColor 0.4823 0.4823 0.4823 1
+            type ITEM_TYPE_BUTTON
+            textAlign ITEM_ALIGN_TOP_LEFT
+            textAlignY -2
+            textScale 0.4583
+            textStyle ITEM_TEXTSTYLE_SHADOWED
+            text "@PLATFORM_QUIT"
+            visible when ( ( dvarbool( "arcademode" ) ) )
+            action
+            {
+            	play "mouse_click";
+            	close "pausedmenu";
+            	open "savegame_warning_arcade";
+            }
+            onFocus
+            {
+            	play "mouse_over";
+            }
+        }
+        itemDef
+        {
+            name "quit"
+            rect -150 164 120 20 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_SUBTOP
+            borderSize 1
+            foreColor 0.4823 0.4823 0.4823 1
+            type ITEM_TYPE_BUTTON
+            textAlign ITEM_ALIGN_TOP_LEFT
+            textAlignY -2
+            textScale 0.4583
+            textStyle ITEM_TEXTSTYLE_SHADOWED
+            text "@PLATFORM_QUIT"
+            visible when ( ( dvarstring( "credits_active" ) != "1" && ! dvarbool( "arcademode" ) ) )
+            action
+            {
+            	play "mouse_click";
+            	close "pausedmenu";
+            	open "savegame_warning_noprofile";
+            }
+            onFocus
+            {
+            	play "mouse_over";
+            }
+        }
+    }
+}

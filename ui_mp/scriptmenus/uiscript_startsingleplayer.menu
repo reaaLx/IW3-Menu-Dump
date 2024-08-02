@@ -1,0 +1,16 @@
+#include "ui/menudefinition.h"
+{
+    menuDef
+    {
+        name "uiscript_startsingleplayer"
+        rect 0 0 640 480 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+        borderSize 1
+        foreColor 1 1 1 1
+        fullScreen 1
+        onOpen 
+        { 
+            uiScript "startSingleplayer"; 
+            close "uiScript_startSingleplayer"; 
+        }
+   }
+}

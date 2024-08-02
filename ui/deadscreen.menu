@@ -1,0 +1,58 @@
+#include "ui/menudefinition.h"
+{
+    menuDef
+    {
+        name "deadscreen"
+        rect 0 0 640 480 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+        borderSize 1
+        foreColor 1 1 1 1
+        fadeCycle 1
+        fadeClamp 1
+        fadeAmount 0.1
+        focusColor 1 1 1 1
+        itemDef
+        {
+            name "quote"
+            rect 80 200 480 20 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            ownerDraw CG_DEADQUOTE
+            borderSize 1
+            foreColor 1 1 1 1
+            type ITEM_TYPE_OWNERDRAW
+            textAlign ITEM_ALIGN_LEGACY_CENTER
+            textScale 0.4583
+            textStyle ITEM_TEXTSTYLE_SHADOWED
+            dvar "ui_deadquote"
+            visible 1  
+            decoration 
+        }
+        itemDef
+        {
+            name "hud_grenadeicon"
+            rect 315 300 60 60 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style WINDOW_STYLE_SHADER
+            borderSize 1
+            foreColor 1 1 1 1
+
+            background "hud_grenadeicon"
+            textScale 0.55
+            dvarTest "ui_grenade_death"
+            showDvar { 1 }
+            visible 1  
+            decoration 
+        }
+        itemDef
+        {
+            name "hud_grenadepointer"
+            rect 320 270 50 25 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            style WINDOW_STYLE_SHADER
+            borderSize 1
+            foreColor 1 1 1 1
+            background "hud_grenadepointer"
+            textScale 0.55
+            dvarTest "ui_grenade_death"
+            showDvar { 1 }
+            visible 1  
+            decoration 
+        }
+    }
+}

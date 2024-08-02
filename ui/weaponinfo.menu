@@ -1,0 +1,108 @@
+#include "ui/menudefinition.h"
+{
+    menuDef
+    {
+        name "weaponinfo"
+        rect 0 0 0 0 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_BOTTOM
+        borderSize 1
+        foreColor 1 1 1 1
+        fadeCycle 1
+        fadeClamp 1
+        fadeAmount 0.1
+        visible when ( ( ! gamemsgwndactive( 2 ) ) && ( dvarbool( "chaplinCheat" ) == 0 ) && dvarbool( "ammoCounterHide" ) == 0 && dvarbool( "hud_missionFailed" ) == 0 && ! flashbanged() && ! ui_active()  )
+        itemDef
+        {
+            name "clipGraphic"
+            rect -43 -10 1 1 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            ownerDraw CG_PLAYER_WEAPON_AMMO_CLIP_GRAPHIC
+            borderSize 1
+            foreColor 1 1 1 0.65
+            type ITEM_TYPE_OWNERDRAW
+            textScale 0.55
+            visible 1  
+            decoration 
+        }
+        itemDef
+        {
+            name "offhandFragIcon"
+            rect -68 -42 24 24 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            ownerDraw CG_OFFHAND_WEAPON_ICON_FRAG
+            borderSize 1
+            foreColor 1 1 1 0.65
+            background "hud_us_grenade"
+            type ITEM_TYPE_OWNERDRAW
+            textScale 0.55
+            visible 1  
+            decoration 
+        }
+        itemDef
+        {
+            name "offhandSmokeIcon"
+            rect -98 -42 24 24 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            ownerDraw CG_OFFHAND_WEAPON_ICON_SMOKEFLASH
+            borderSize 1
+            foreColor 1 1 1 0.65
+            background "hud_us_smokegrenade"
+            type ITEM_TYPE_OWNERDRAW
+            textScale 0.55
+            visible 1  
+            decoration 
+        }
+        itemDef
+        {
+            name "offhandsmokeammo"
+            rect -78 -12 25 25 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            ownerDraw CG_OFFHAND_WEAPON_AMMO_SMOKEFLASH
+            borderSize 1
+            foreColor 1 1 1 0.75
+            type ITEM_TYPE_OWNERDRAW
+            textFont UI_FONT_OBJECTIVE
+            textScale 0.375
+            textStyle ITEM_TEXTSTYLE_SHADOWED
+            visible 1  
+            decoration 
+        }
+        itemDef
+        {
+            name "offhandfragammo"
+            rect -48 -12 25 25 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            ownerDraw CG_OFFHAND_WEAPON_AMMO_FRAG
+            borderSize 1
+            foreColor 1 1 1 0.75
+            type ITEM_TYPE_OWNERDRAW
+            textFont UI_FONT_OBJECTIVE
+            textScale 0.375
+            textStyle ITEM_TEXTSTYLE_SHADOWED
+            visible 1  
+            decoration 
+        }
+        itemDef
+        {
+            name "ammostock"
+            rect -39 -2 25 25 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            ownerDraw CG_PLAYER_WEAPON_AMMO_STOCK
+            borderSize 1
+            foreColor 1 1 1 0.75
+            type ITEM_TYPE_OWNERDRAW
+            textFont UI_FONT_OBJECTIVE
+            textScale 0.375
+            textStyle ITEM_TEXTSTYLE_SHADOWED
+            visible 1  
+            decoration 
+        }
+        itemDef
+        {
+            name "weapname_lowdef"
+            rect -269 -44 290 40 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            ownerDraw CG_PLAYER_WEAPON_NAME
+            borderSize 1
+            foreColor 1 1 1 0.75
+            type ITEM_TYPE_OWNERDRAW
+            textFont UI_FONT_OBJECTIVE
+            textScale 0.375
+            textStyle ITEM_TEXTSTYLE_SHADOWED
+            visible 1  
+            decoration 
+         }
+    }
+}

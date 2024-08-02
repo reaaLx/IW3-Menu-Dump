@@ -1,0 +1,27 @@
+#include "ui/menudefinition.h"
+{
+    menuDef
+    {
+        name "savingicon"
+        rect -100 10 40 40 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+        borderSize 1
+        foreColor 1 1 1 1
+        fadeCycle 1
+        fadeClamp 1
+        fadeAmount 0.1
+  
+        itemDef
+        {
+            name "chRect"
+            rect 0 0 40 40 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            ownerDraw CG_SAVING
+            borderSize 1
+            foreColor 1 1 1 1
+            background "saving"
+            type ITEM_TYPE_OWNERDRAW
+            textScale 0.55
+            visible 1                 
+            decoration                
+        }
+    }
+}

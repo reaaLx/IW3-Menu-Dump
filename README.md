@@ -4,8 +4,5 @@ This repository contains original mod tools menu files in its RAW format without
 
 ![](https://i.imgur.com/QF6BUGt.png)
 
-# Requirements
-CoD4 1.7
-
 # Credits
 xoxor4d (IW3xo)

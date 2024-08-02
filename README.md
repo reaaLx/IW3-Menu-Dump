@@ -1,4 +1,4 @@
-# Call of Duty 4: Modern Warfare RAW exported Menu files
+# Call of Duty 4: Modern Warfare RAW Menu Files
 
 This repository contains original mod tools menu files in its RAW format without its preprocessors for Call of Duty 4 Modern Warfare exported with IW3xo.
 

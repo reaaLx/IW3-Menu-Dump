@@ -1,0 +1,34 @@
+
+#include "ui/menudefinition.h"
+{
+    menuDef
+    {
+        name "popup_gettinglb"
+        rect 0 0 640 480 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+        style WINDOW_STYLE_FILLED
+        borderSize 1
+        focusColor 1 1 1 1
+        foreColor 1 1 1 1
+        fadeCycle 1
+        fadeClamp 1
+        fadeAmount 0.1
+        fadeInAmount 0.002
+        popup 
+        onESC 
+        { 
+            close "popup_gettinglb"; 
+        }
+        itemDef
+        {
+            rect 320 254 0 0 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
+            borderSize 1
+            foreColor 0.4823 0.4823 0.4823 1
+            textFont UI_FONT_NORMAL
+            textAlign ITEM_ALIGN_LEGACY_CENTER
+            textScale 0.4583
+            text "DOWNLOADING..."
+            visible 1
+            decoration                
+        }
+    }
+}

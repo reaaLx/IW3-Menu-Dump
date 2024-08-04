@@ -1,0 +1,178 @@
+
+#include "ui/menudefinition.h"
+{
+    menuDef
+    {
+        name "scorebars_splitscreen"
+        rect 0 10 640 480 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+        borderSize 1
+        foreColor 1 1 1 1
+        fadeCycle 1
+        fadeClamp 1
+        fadeAmount 0.1
+        legacysplitscreenscale    
+        exp rect Y ( ( 10 - ( "ONLINEGAME" * "ONLINEGAME_OFFSET" ) ) )
+        visible when ( ( ! inkillcam() && ! ui_active() && dvarint( "ui_hud_hardcore" ) == 0 ) )
+        itemDef
+        {
+            rect 6 -63 48 48 HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_BOTTOM
+            style WINDOW_STYLE_SHADER
+            borderSize 1
+            foreColor 1 1 1 0.4
+            textScale 0.55
+            exp material ( ( dvarstring( "g_TeamIcon_Allies" ) ) )
+            visible when ( ( team( "name" ) == "TEAM_ALLIES" && ( team( "name" ) != "TEAM_SPECTATOR" ) ) )
+            decoration                
+        }
+        itemDef
+        {
+            rect 6 -63 48 48 HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_BOTTOM
+            style WINDOW_STYLE_SHADER
+            borderSize 1
+            foreColor 1 1 1 0.4
+            textScale 0.55
+            exp material ( ( dvarstring( "g_TeamIcon_Allies" ) ) )
+            visible when ( ( team( "name" ) == "TEAM_SPECTATOR" && ( team( "name" ) != "TEAM_SPECTATOR" ) ) )
+            decoration                
+        }
+        itemDef
+        {
+            rect 6 -63 48 48 HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_BOTTOM
+            style WINDOW_STYLE_SHADER
+            borderSize 1
+            foreColor 1 1 1 0.4
+            textScale 0.55
+            exp material ( ( dvarstring( "g_TeamIcon_Axis" ) ) )
+            visible when ( ( team( "name" ) == "TEAM_AXIS" && ( team( "name" ) != "TEAM_SPECTATOR" ) ) )
+            decoration                
+        }
+        itemDef
+        {
+            rect -6 -49 24 24 HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_BOTTOM
+            style WINDOW_STYLE_SHADER
+            borderSize 1
+            foreColor 1 1 1 0.65
+            background "hud_arrow_right"
+            textScale 0.55
+            exp rect Y ( ( - 49 + 0 - ( ( team( "score" ) < otherteam( "score" ) ) * 19 ) ) )
+            visible when ( ( ( team( "name" ) == "TEAM_ALLIES" || team( "name" ) == "TEAM_AXIS" ) && ( team( "name" ) != "TEAM_SPECTATOR" ) ) )
+            decoration                
+        }
+        itemDef
+        {
+            rect -6 -49 24 24 HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_BOTTOM
+            style WINDOW_STYLE_SHADER
+            borderSize 1
+            foreColor 1 1 1 0.65
+            background "hud_arrow_right"
+            textScale 0.55
+            exp rect Y ( ( - 49 + 0 - ( ( player( "score" ) < scoreatrank( 1 ) ) * 19 ) ) )
+            visible when ( ( team( "name" ) == "TEAM_FREE" && ( team( "name" ) != "TEAM_SPECTATOR" ) ) )
+            decoration                
+        }
+        itemDef
+        {
+            rect 20 -27 1 1 HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_BOTTOM
+            borderSize 1
+            foreColor 1 1 1 0.75
+            textFont UI_FONT_SMALL
+            textScale 0.4583
+            textStyle ITEM_TEXTSTYLE_SHADOWEDMORE
+            exp text ( ( team( "score" ) ) )
+            exp rect Y ( ( - 27 + 0 - ( ( team( "score" ) < otherteam( "score" ) ) * 19 ) ) )
+            visible when ( ( ( team( "name" ) == "TEAM_ALLIES" || team( "name" ) == "TEAM_AXIS" ) && ( team( "name" ) != "TEAM_SPECTATOR" ) ) )
+            decoration                
+        }
+        itemDef
+        {
+            rect 20 -27 1 1 HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_BOTTOM
+            borderSize 1
+            foreColor 1 1 1 0.75
+            textFont UI_FONT_SMALL
+            textScale 0.4583
+            textStyle ITEM_TEXTSTYLE_SHADOWEDMORE
+            exp text ( ( player( "score" ) ) )
+            exp rect Y ( ( - 27 + 0 - ( ( player( "score" ) < scoreatrank( 1 ) ) * 19 ) ) )
+            visible when ( ( team( "name" ) == "TEAM_FREE" && ( team( "name" ) != "TEAM_SPECTATOR" ) ) )
+            decoration                
+        }
+        itemDef
+        {
+            rect 20 -8 1 1 HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_BOTTOM
+            borderSize 1
+            foreColor 1 1 1 0.75
+            textFont UI_FONT_SMALL
+            textScale 0.4583
+            textStyle ITEM_TEXTSTYLE_SHADOWEDMORE
+            exp text ( ( otherteam( "score" ) ) )
+            exp rect Y ( ( - 8 + ( ( team( "score" ) < otherteam( "score" ) ) * 19 ) ) )
+            visible when ( ( ( team( "name" ) == "TEAM_ALLIES" || team( "name" ) == "TEAM_AXIS" ) && ( team( "name" ) != "TEAM_SPECTATOR" ) ) )
+            decoration                
+        }
+        itemDef
+        {
+            rect 20 -8 1 1 HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_BOTTOM
+            borderSize 1
+            foreColor 1 1 1 0.75
+            textFont UI_FONT_SMALL
+            textScale 0.4583
+            textStyle ITEM_TEXTSTYLE_SHADOWEDMORE
+            exp text ( ( scoreatrank( 2 ) ) )
+            exp rect Y ( ( - 8 + ( ( player( "score" ) < scoreatrank( 1 ) ) * 19 ) ) )
+            visible when ( ( team( "name" ) == "TEAM_FREE" && player( "score" ) == scoreatrank( 1 ) && ( team( "name" ) != "TEAM_SPECTATOR" ) ) )
+            decoration                
+        }
+        itemDef
+        {
+            rect 20 -8 1 1 HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_BOTTOM
+            borderSize 1
+            foreColor 1 1 1 0.75
+            textFont UI_FONT_SMALL
+            textScale 0.4583
+            textStyle ITEM_TEXTSTYLE_SHADOWEDMORE
+            exp text ( ( scoreatrank( 1 ) ) )
+            exp rect Y ( ( - 8 + ( ( player( "score" ) < scoreatrank( 1 ) ) * 19 ) ) )
+            visible when ( ( team( "name" ) == "TEAM_FREE" && player( "score" ) != scoreatrank( 1 ) && ( team( "name" ) != "TEAM_SPECTATOR" ) ) )
+            decoration                
+        }
+        itemDef
+        {
+            rect -4 0 1 1 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+            borderSize 1
+            foreColor 1 1 1 1
+            textFont UI_FONT_OBJECTIVE
+            textAlign ITEM_ALIGN_TOP_RIGHT
+            textScale 0.375
+            textStyle ITEM_TEXTSTYLE_SHADOWEDMORE
+            exp text ( ( secondsascountdown( timeleft() ) ) )
+            visible when ( ( timeleft() >= 60 ) )
+            decoration                
+        }
+        itemDef
+        {
+            rect -4 0 1 1 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+            borderSize 1
+            foreColor 1 0.75 0 1
+            textFont UI_FONT_OBJECTIVE
+            textAlign ITEM_ALIGN_TOP_RIGHT
+            textScale 0.375
+            textStyle ITEM_TEXTSTYLE_SHADOWEDMORE
+            exp text ( ( secondsascountdown( timeleft() ) ) )
+            visible when ( ( timeleft() >= 30 && timeleft() < 60 ) )
+            decoration                
+        }
+        itemDef
+        {
+            rect -4 0 1 1 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+            borderSize 1
+            foreColor 1 0.5 0 1
+            textFont UI_FONT_OBJECTIVE
+            textAlign ITEM_ALIGN_TOP_RIGHT
+            textScale 0.375
+            textStyle ITEM_TEXTSTYLE_SHADOWEDMORE
+            exp text ( ( secondsascountdown( timeleft() ) ) )
+            visible when ( ( timeleft() >= 0 && timeleft() < 30 ) )
+            decoration                
+        }
+    }
+}

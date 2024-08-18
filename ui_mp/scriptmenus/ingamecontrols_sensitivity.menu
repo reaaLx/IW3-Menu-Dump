@@ -111,7 +111,10 @@
             textAlign ITEM_ALIGN_MIDDLE_CENTER
             textScale 0.4583
             text "@PLATFORM_BACK"
-            action { close "self"; }
+            action 
+            { 
+                close "self"; 
+            }
             visible when ( ! localvarbool( "ui_hideBack" ) )
         }
         itemDef
@@ -136,11 +139,20 @@
             textAlignY 20
             textScale 0.4583
             text "@MENU_LOW"
-            action { play "mouse_click"; exec "exec viewSensitivity_low" close "ingamecontrols_sensitivity"; open "ingame_controls"; }
-            onFocus { play "mouse_over"; }
             dvarTest "input_viewSensitivity"
             focusDvar { 0.8 }
-            visible 1                 
+            visible 1
+            action
+            {
+                play "mouse_click";
+                exec "exec viewSensitivity_low"
+                close "ingamecontrols_sensitivity";
+                open "ingame_controls";
+            }
+            onFocus
+            {
+                play "mouse_over";
+            }
         }
         itemDef
         {
@@ -153,11 +165,20 @@
             textAlignY 20
             textScale 0.4583
             text "@MENU_MEDIUM"
-            action { play "mouse_click"; exec "exec viewSensitivity_med" close "ingamecontrols_sensitivity"; open "ingame_controls"; }
-            onFocus { play "mouse_over"; }
             dvarTest "input_viewSensitivity"
             focusDvar { 1 }
-            visible 1                 
+            visible 1
+            action
+            {
+            	play "mouse_click";
+            	exec "exec viewSensitivity_med"
+            	close "ingamecontrols_sensitivity";
+            	open "ingame_controls";
+            }
+            onFocus
+            {
+            	play "mouse_over";
+            }
         }
         itemDef
         {
@@ -170,11 +191,20 @@
             textAlignY 20
             textScale 0.4583
             text "@MENU_HIGH"
-            action { play "mouse_click"; exec "exec viewSensitivity_high" close "ingamecontrols_sensitivity"; open "ingame_controls"; }
-            onFocus { play "mouse_over"; }
             dvarTest "input_viewSensitivity"
             focusDvar { 1.8 }
-            visible 1                 
+            visible 1      
+            action
+            {
+            	play "mouse_click";
+            	exec "exec viewSensitivity_high"
+            	close "ingamecontrols_sensitivity";
+            	open "ingame_controls";
+            }
+            onFocus
+            {
+            	play "mouse_over";
+            }
         }
         itemDef
         {
@@ -187,11 +217,20 @@
             textAlignY 20
             textScale 0.4583
             text "@MENU_VERY_HIGH"
-            action { play "mouse_click"; exec "exec viewSensitivity_ultra" close "ingamecontrols_sensitivity"; open "ingame_controls"; }
-            onFocus { play "mouse_over"; }
             dvarTest "input_viewSensitivity"
             focusDvar { 4 }
-            visible 1                 
+            visible 1
+            action
+            {
+            	play "mouse_click";
+            	exec "exec viewSensitivity_ultra"
+            	close "ingamecontrols_sensitivity";
+            	open "ingame_controls";
+            }
+            onFocus
+            {
+            	play "mouse_over";
+            }
         }
    }
 }

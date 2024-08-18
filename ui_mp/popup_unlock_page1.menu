@@ -8,8 +8,8 @@
 		borderSize 1
 		foreColor 1 1 1 1
 		focusColor 1 1 1 1
-		exp rect X( ( -( 460 / 2 ) ) )
-		exp rect Y( ( 68 + 400 - 400 * sin( sin( min( milliseconds() - dvarint( "ui_time_marker" ), 400 ) * ( 1.5707 / 400 ) ) * 1.5707 ) ) )
+		exp rect X ( ( -( 460 / 2 ) ) )
+		exp rect Y ( ( 68 + 400 - 400 * sin( sin( min( milliseconds() - dvarint( "ui_time_marker" ), 400 ) * ( 1.5707 / 400 ) ) * 1.5707 ) ) )
 		onOpen
 		{
 			setdvar "ui_keep_unlock_open" 1;

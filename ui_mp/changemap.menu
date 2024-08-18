@@ -1,29 +1,24 @@
+
 #include "ui/menudefinition.h"
 {
     menuDef
     {
-        name "main_controls"
+        name "changemap"
         rect 0 0 640 480 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
         borderSize 1
+        focusColor 1 1 1 1
         foreColor 1 1 1 1
-        blurWorld 7
-        focusColor 1 1 1 1        
-        onOpen 
+        fadeCycle 1
+        fadeClamp 1
+        fadeAmount 0.1
+        fadeInAmount 0.002
+        blurWorld  7
+        onESC      
         { 
-            setLocalVarBool "ui_showApply" ( 0 ); 
-            setLocalVarBool "ui_hideBack" ( 1 ); 
-            setitemcolor "fadebox" backcolor 0 0 0 1; 
-            fadeout "fadebox"; 
-            setdvar "g_reloading" 0; 
+            close "self";
+            open "class";
         }
-        onClose 
-        { 
-            setLocalVarBool "ui_hideBack" ( 0 ); 
-        }
-        onESC 
-        { 
-            close "self"; 
-        }      
+        
         itemDef
         {
             rect -120 0 880 480 HORIZONTAL_ALIGN_SUBLEFT VERTICAL_ALIGN_SUBTOP
@@ -31,9 +26,9 @@
             borderSize 1
             foreColor 0 0 0 0.75
             textScale 0.55
-            exp material ( ( "white" ) )
-            visible 1                 
-            decoration                
+            exp  material ( ( "white" ) )
+            visible 1  
+            decoration 
         }
         itemDef
         {
@@ -43,8 +38,8 @@
             foreColor 0.9 0.9 0.95 0.175
             background "white"
             textScale 0.55
-            visible 1                 
-            decoration                
+            visible 1  
+            decoration 
         }
         itemDef
         {
@@ -54,8 +49,8 @@
             foreColor 0.9 0.9 0.95 0.175
             background "button_highlight_end"
             textScale 0.55
-            visible 1                 
-            decoration                
+            visible 1  
+            decoration 
         }
         itemDef
         {
@@ -65,8 +60,8 @@
             foreColor 0.9 0.9 0.95 0.175
             background "white"
             textScale 0.55
-            visible 1                 
-            decoration                
+            visible 1  
+            decoration 
         }
         itemDef
         {
@@ -76,8 +71,8 @@
             foreColor 0.9 0.9 0.95 0.175
             background "button_highlight_end"
             textScale 0.55
-            visible 1                 
-            decoration                
+            visible 1  
+            decoration 
         }
         itemDef
         {
@@ -87,8 +82,8 @@
             foreColor 0.9 0.9 0.95 0.175
             background "button_highlight_end"
             textScale 0.55
-            visible 1                 
-            decoration                
+            visible 1  
+            decoration 
         }
         itemDef
         {
@@ -98,8 +93,8 @@
             foreColor 0.9 0.9 0.95 0.175
             background "white"
             textScale 0.55
-            visible 1                 
-            decoration                
+            visible 1  
+            decoration 
         }
         itemDef
         {
@@ -109,8 +104,8 @@
             foreColor 0.9 0.9 0.95 0.175
             background "white"
             textScale 0.55
-            visible 1                 
-            decoration                
+            visible 1  
+            decoration 
         }
         itemDef
         {
@@ -125,17 +120,17 @@
             textScale 0.375
             textStyle ITEM_TEXTSTYLE_SHADOWED
             text "@MENU_BACK"
-            mouseEnter
-            {
-            	play "mouse_over";
-            }
-            action
-            {
-            	play "mouse_click";
-            	close "self";
-            	exec "wait";
-            }
             visible when ( ( 1 ) )
+            mouseEnter 
+            { 
+                play "mouse_over"; 
+            }
+            action 
+            { 
+                play "mouse_click"; 
+                close "self"; 
+                exec "wait"; 
+            }
         }
         itemDef
         {
@@ -148,9 +143,9 @@
             textAlignY -36
             textScale 0.5833
             textStyle ITEM_TEXTSTYLE_SHADOWEDMORE
-            exp text ( ( "@MENU_CONTROLS" ) )
-            visible 1                 
-            decoration                
+            exp text ( ( "@MPUI_CALLVOTE" ) )
+            visible 1  
+            decoration 
         }
         itemDef
         {
@@ -159,9 +154,9 @@
             borderSize 1
             foreColor 0.9 0.9 1 0.07
             textScale 0.55
-            exp material ( ( "gradient_fadein" ) )
-            visible 1                 
-            decoration                
+            exp  material ( ( "gradient_fadein" ) )
+            visible 1  
+            decoration 
         }
         itemDef
         {
@@ -171,8 +166,8 @@
             foreColor 0.9 0.9 1 0.07
             background "button_highlight_end"
             textScale 0.55
-            visible 1                 
-            decoration                
+            visible 1  
+            decoration 
         }
         itemDef
         {
@@ -184,7 +179,7 @@
             background "gradient_fadein"
             textScale 0.55
             visible when ( ( localvarint( "ui_highlight" ) == 2 && localvarstring( "ui_choicegroup" ) == "" ) )
-            decoration                
+            decoration 
         }
         itemDef
         {
@@ -195,7 +190,7 @@
             background "button_highlight_end"
             textScale 0.55
             visible when ( ( localvarint( "ui_highlight" ) == 2 && localvarstring( "ui_choicegroup" ) == "" ) )
-            decoration                
+            decoration 
         }
         itemDef
         {
@@ -208,43 +203,24 @@
             textAlignX -10
             textScale 0.4
             textStyle ITEM_TEXTSTYLE_SHADOWEDMORE
-            exp text ( ( "@MENU_LOOK" ) )
-            visible 1        
+            exp text ( ( "@MPUI_RESTART_MAP" ) )
+            visible 1  
             action
             {
-                play "mouse_click";
-                close "options_look";
-                close "options_move";
-                close "options_shoot";
-                close "options_misc";
-                close "options_graphics";
-                close "options_sound";
-                close "options_game";
-                close "options_view";
-                close "options_defaults";
-                close "options_driverinfo";
-                close "options_credits";
-                close "options_multi";
-                close "options_graphics_defaults";
-                close "options_graphics_texture";
-                close "options_control_defaults";
-                close "options_voice";
-                close "options_multi";
-                close "controls_multi";
-                close "main_options";
-                close "main_controls";
-                open "options_look";
+            	play "mouse_click";
+            	exec "cmd callvote map_restart";
+            	close "self";
             }
             onFocus
             {
-                play "mouse_over";
-                setLocalVarInt "ui_highlight" ( 2 );
-                setLocalVarString "ui_choicegroup";
+            	play "mouse_over";
+            	setLocalVarInt "ui_highlight" ( 2 );
+            	setLocalVarString "ui_choicegroup";
             }
             leaveFocus
             {
-                setLocalVarInt "ui_highlight" ( 0 );
-            }         
+            	setLocalVarInt "ui_highlight" ( 0 ) ;
+            }
         }
         itemDef
         {
@@ -253,9 +229,9 @@
             borderSize 1
             foreColor 0.9 0.9 1 0.07
             textScale 0.55
-            exp material ( ( "gradient_fadein" ) )
-            visible 1                 
-            decoration                
+            exp  material ( ( "gradient_fadein" ) )
+            visible 1  
+            decoration 
         }
         itemDef
         {
@@ -265,8 +241,8 @@
             foreColor 0.9 0.9 1 0.07
             background "button_highlight_end"
             textScale 0.55
-            visible 1                 
-            decoration                
+            visible 1  
+            decoration 
         }
         itemDef
         {
@@ -278,7 +254,7 @@
             background "gradient_fadein"
             textScale 0.55
             visible when ( ( localvarint( "ui_highlight" ) == 3 && localvarstring( "ui_choicegroup" ) == "" ) )
-            decoration                
+            decoration 
         }
         itemDef
         {
@@ -289,7 +265,7 @@
             background "button_highlight_end"
             textScale 0.55
             visible when ( ( localvarint( "ui_highlight" ) == 3 && localvarstring( "ui_choicegroup" ) == "" ) )
-            decoration                
+            decoration 
         }
         itemDef
         {
@@ -302,32 +278,13 @@
             textAlignX -10
             textScale 0.4
             textStyle ITEM_TEXTSTYLE_SHADOWEDMORE
-            exp text ( ( "@MENU_MOVE" ) )
-            visible 1
+            exp text ( ( "@MPUI_NEXT_MAP" ) )
+            visible 1  
             action
             {
             	play "mouse_click";
-            	close "options_look";
-            	close "options_move";
-            	close "options_shoot";
-            	close "options_misc";
-            	close "options_graphics";
-            	close "options_sound";
-            	close "options_game";
-            	close "options_view";
-            	close "options_defaults";
-            	close "options_driverinfo";
-            	close "options_credits";
-            	close "options_multi";
-            	close "options_graphics_defaults";
-            	close "options_graphics_texture";
-            	close "options_control_defaults";
-            	close "options_voice";
-            	close "options_multi";
-            	close "controls_multi";
-            	close "main_options";
-            	close "main_controls";
-            	open "options_move";
+            	exec "cmd callvote map_rotate";
+            	close "self";
             }
             onFocus
             {
@@ -347,9 +304,9 @@
             borderSize 1
             foreColor 0.9 0.9 1 0.07
             textScale 0.55
-            exp material ( ( "gradient_fadein" ) )
-            visible 1                 
-            decoration                
+            exp  material ( ( "gradient_fadein" ) )
+            visible 1  
+            decoration 
         }
         itemDef
         {
@@ -359,8 +316,8 @@
             foreColor 0.9 0.9 1 0.07
             background "button_highlight_end"
             textScale 0.55
-            visible 1                 
-            decoration                
+            visible 1  
+            decoration 
         }
         itemDef
         {
@@ -372,7 +329,7 @@
             background "gradient_fadein"
             textScale 0.55
             visible when ( ( localvarint( "ui_highlight" ) == 4 && localvarstring( "ui_choicegroup" ) == "" ) )
-            decoration                
+            decoration 
         }
         itemDef
         {
@@ -383,7 +340,7 @@
             background "button_highlight_end"
             textScale 0.55
             visible when ( ( localvarint( "ui_highlight" ) == 4 && localvarstring( "ui_choicegroup" ) == "" ) )
-            decoration                
+            decoration 
         }
         itemDef
         {
@@ -396,32 +353,15 @@
             textAlignX -10
             textScale 0.4
             textStyle ITEM_TEXTSTYLE_SHADOWEDMORE
-            exp text ( ( "@MENU_COMBAT" ) )
-            visible 1
+            exp text ( ( "@MPUI_CHANGE_MAP" ) )
+            visible 1  
             action
             {
             	play "mouse_click";
-            	close "options_look";
-            	close "options_move";
-            	close "options_shoot";
-            	close "options_misc";
-            	close "options_graphics";
-            	close "options_sound";
-            	close "options_game";
-            	close "options_view";
-            	close "options_defaults";
-            	close "options_driverinfo";
-            	close "options_credits";
-            	close "options_multi";
-            	close "options_graphics_defaults";
-            	close "options_graphics_texture";
-            	close "options_control_defaults";
-            	close "options_voice";
-            	close "options_multi";
-            	close "controls_multi";
-            	close "main_options";
-            	close "main_controls";
-            	open "options_shoot";
+            	open "changemap";
+            	close "changegametype";
+            	close "kickplayer";
+            	close "callvote";
             }
             onFocus
             {
@@ -441,9 +381,9 @@
             borderSize 1
             foreColor 0.9 0.9 1 0.07
             textScale 0.55
-            exp material ( ( "gradient_fadein" ) )
-            visible 1                 
-            decoration                
+            exp  material ( ( "gradient_fadein" ) )
+            visible 1  
+            decoration 
         }
         itemDef
         {
@@ -453,8 +393,8 @@
             foreColor 0.9 0.9 1 0.07
             background "button_highlight_end"
             textScale 0.55
-            visible 1                 
-            decoration                
+            visible 1  
+            decoration 
         }
         itemDef
         {
@@ -466,7 +406,7 @@
             background "gradient_fadein"
             textScale 0.55
             visible when ( ( localvarint( "ui_highlight" ) == 5 && localvarstring( "ui_choicegroup" ) == "" ) )
-            decoration                
+            decoration 
         }
         itemDef
         {
@@ -477,7 +417,7 @@
             background "button_highlight_end"
             textScale 0.55
             visible when ( ( localvarint( "ui_highlight" ) == 5 && localvarstring( "ui_choicegroup" ) == "" ) )
-            decoration                
+            decoration 
         }
         itemDef
         {
@@ -490,33 +430,16 @@
             textAlignX -10
             textScale 0.4
             textStyle ITEM_TEXTSTYLE_SHADOWEDMORE
-            exp text ( ( "@MENU_INTERACT" ) )
-            visible 1      
+            exp text ( ( "@MPUI_CHANGE_GAME_TYPEMAP" ) )
+            visible 1  
             action
             {
-            	play "mouse_click";
-            	close "options_look";
-            	close "options_move";
-            	close "options_shoot";
-            	close "options_misc";
-            	close "options_graphics";
-            	close "options_sound";
-            	close "options_game";
-            	close "options_view";
-            	close "options_defaults";
-            	close "options_driverinfo";
-            	close "options_credits";
-            	close "options_multi";
-            	close "options_graphics_defaults";
-            	close "options_graphics_texture";
-            	close "options_control_defaults";
-            	close "options_voice";
-            	close "options_multi";
-            	close "controls_multi";
-            	close "main_options";
-            	close "main_controls";
-            	open "options_misc";
-            }
+                play "mouse_click";
+                open "changegametype";
+                close "changemap";
+                close "kickplayer";
+                close "callvote";
+            }           
             onFocus
             {
             	play "mouse_over";
@@ -535,9 +458,9 @@
             borderSize 1
             foreColor 0.9 0.9 1 0.07
             textScale 0.55
-            exp material ( ( "gradient_fadein" ) )
-            visible when ( ( dvarint( "ui_multiplayer" ) ) )
-            decoration                
+            exp  material ( ( "gradient_fadein" ) )
+            visible 1  
+            decoration 
         }
         itemDef
         {
@@ -547,8 +470,8 @@
             foreColor 0.9 0.9 1 0.07
             background "button_highlight_end"
             textScale 0.55
-            visible when ( ( dvarint( "ui_multiplayer" ) ) )
-            decoration                
+            visible 1  
+            decoration 
         }
         itemDef
         {
@@ -560,7 +483,7 @@
             background "gradient_fadein"
             textScale 0.55
             visible when ( ( localvarint( "ui_highlight" ) == 6 && localvarstring( "ui_choicegroup" ) == "" ) )
-            decoration                
+            decoration 
         }
         itemDef
         {
@@ -571,7 +494,7 @@
             background "button_highlight_end"
             textScale 0.55
             visible when ( ( localvarint( "ui_highlight" ) == 6 && localvarstring( "ui_choicegroup" ) == "" ) )
-            decoration                
+            decoration 
         }
         itemDef
         {
@@ -584,32 +507,15 @@
             textAlignX -10
             textScale 0.4
             textStyle ITEM_TEXTSTYLE_SHADOWEDMORE
-            exp text ( ( "@MENU_MULTIPLAYER_CONTROLS" ) )
-            visible when ( ( dvarint( "ui_multiplayer" ) ) )
+            exp text ( ( "@MPUI_KICK_PLAYER" ) )
+            visible 1  
             action
             {
-            	play "mouse_click";
-            	close "options_look";
-            	close "options_move";
-            	close "options_shoot";
-            	close "options_misc";
-            	close "options_graphics";
-            	close "options_sound";
-            	close "options_game";
-            	close "options_view";
-            	close "options_defaults";
-            	close "options_driverinfo";
-            	close "options_credits";
-            	close "options_multi";
-            	close "options_graphics_defaults";
-            	close "options_graphics_texture";
-            	close "options_control_defaults";
-            	close "options_voice";
-            	close "options_multi";
-            	close "controls_multi";
-            	close "main_options";
-            	close "main_controls";
-            	open "controls_multi";
+                play "mouse_click";
+                open "kickplayer";
+                close "changemap";
+                close "changegametype";
+                close "callvote";
             }
             onFocus
             {
@@ -624,88 +530,98 @@
         }
         itemDef
         {
-            rect -324 130 214.5 22 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_TOP
+            rect -14 17 240 0.5 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_TOP
             style WINDOW_STYLE_SHADER
             borderSize 1
-            foreColor 0.9 0.9 1 0.07
+            foreColor 1 1 1 0.85
+            background "line_horizontal"
             textScale 0.55
-            exp material ( ( "gradient_fadein" ) )
-            visible when ( ( ! dvarint( "ui_multiplayer" ) ) )
-            decoration                
+            visible 1  
+            decoration 
         }
         itemDef
         {
-            rect -109.5 130 5.5 22 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_TOP
+            rect 6 18 200 10 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_TOP
             style WINDOW_STYLE_SHADER
             borderSize 1
-            foreColor 0.9 0.9 1 0.07
-            background "button_highlight_end"
+            foreColor 0.4 0.6 1 0.8
+            background "line_horizontal"
             textScale 0.55
-            visible when ( ( ! dvarint( "ui_multiplayer" ) ) )
-            decoration                
+            visible 1  
+            decoration 
         }
         itemDef
         {
-            rect -324 130 220 22 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_TOP
+            rect -14 29 240 0.5 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_TOP
+            style WINDOW_STYLE_SHADER
             borderSize 1
-            foreColor 0.5 0.5 0.5 0.5
+            foreColor 1 1 1 0.85
+            background "line_horizontal"
+            textScale 0.55
+            visible 1  
+            decoration 
+        }
+        itemDef
+        {
+            rect -14 9 240 24 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_TOP
+            borderSize 1
+            foreColor 1 1 1 0.8
             textFont UI_FONT_NORMAL
-            textAlign ITEM_ALIGN_MIDDLE_RIGHT
-            textAlignX -10
-            textScale 0.4
+            textAlign ITEM_ALIGN_MIDDLE_CENTER
+            textScale 0.4583
             textStyle ITEM_TEXTSTYLE_SHADOWEDMORE
-            exp text ( ( "@MENU_MULTIPLAYER_CONTROLS" ) )
-            visible when ( ( ! dvarint( "ui_multiplayer" ) ) )
-            decoration                
+            exp text ( ( "@MPUI_CHANGE_MAP" ) )
+            visible 1  
+            decoration 
         }
         itemDef
         {
-            rect -324 154 214.5 22 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_TOP
+            rect -10 370 194.5 22 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_TOP
             style WINDOW_STYLE_SHADER
             borderSize 1
             foreColor 0.9 0.9 1 0.07
             textScale 0.55
-            exp material ( ( "gradient_fadein" ) )
-            visible 1                 
-            decoration                
+            exp  material ( ( "gradient_fadein" ) )
+            visible 1  
+            decoration 
         }
         itemDef
         {
-            rect -109.5 154 5.5 22 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_TOP
+            rect 184.5 370 5.5 22 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_TOP
             style WINDOW_STYLE_SHADER
             borderSize 1
             foreColor 0.9 0.9 1 0.07
             background "button_highlight_end"
             textScale 0.55
-            visible 1                 
-            decoration                
+            visible 1  
+            decoration 
         }
         itemDef
         {
-            rect -324 154 214.5 22 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_TOP
+            rect -10 370 194.5 22 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_TOP
             style WINDOW_STYLE_SHADER
             borderSize 2
             foreColor 0.9 0.95 1 0.35
             borderColor 0.8 0.95 1 0.4
             background "gradient_fadein"
             textScale 0.55
-            visible when ( ( localvarint( "ui_highlight" ) == 7 && localvarstring( "ui_choicegroup" ) == "" ) )
-            decoration                
+            visible when ( ( localvarint( "ui_highlight" ) == 36 && localvarstring( "ui_choicegroup" ) == "" ) )
+            decoration 
         }
         itemDef
         {
-            rect -109.5 154 5.5 22 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_TOP
+            rect 184.5 370 5.5 22 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_TOP
             style WINDOW_STYLE_SHADER
             borderSize 1
             foreColor 0.9 0.95 1 0.35
             background "button_highlight_end"
             textScale 0.55
-            visible when ( ( localvarint( "ui_highlight" ) == 7 && localvarstring( "ui_choicegroup" ) == "" ) )
-            decoration                
+            visible when ( ( localvarint( "ui_highlight" ) == 36 && localvarstring( "ui_choicegroup" ) == "" ) )
+            decoration 
         }
         itemDef
         {
-            rect -324 154 220 22 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_TOP
+            rect -10 370 200 22 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_TOP
             borderSize 1
             foreColor 0.69 0.69 0.69 1
             type ITEM_TYPE_BUTTON
@@ -714,43 +630,47 @@
             textAlignX -10
             textScale 0.4
             textStyle ITEM_TEXTSTYLE_SHADOWEDMORE
-            exp text ( ( "@MENU_SET_DEFAULT_CONTROLS" ) )
-            visible 1       
+            exp text ( ( "@MPUI_VOTE" ) )
+            visible 1  
             action
             {
             	play "mouse_click";
-            	close "options_look";
-            	close "options_move";
-            	close "options_shoot";
-            	close "options_misc";
-            	close "options_graphics";
-            	close "options_sound";
-            	close "options_game";
-            	close "options_view";
-            	close "options_defaults";
-            	close "options_driverinfo";
-            	close "options_credits";
-            	close "options_multi";
-            	close "options_graphics_defaults";
-            	close "options_graphics_texture";
-            	close "options_control_defaults";
-            	close "options_voice";
-            	close "options_multi";
-            	close "controls_multi";
-            	close "main_options";
-            	close "main_controls";
-            	open "options_control_defaults";
+            	close "self";
+            	uiScript "voteMap";
             }
             onFocus
             {
             	play "mouse_over";
-            	setLocalVarInt "ui_highlight" ( 7 );
+            	setLocalVarInt "ui_highlight" ( 36 );
             	setLocalVarString "ui_choicegroup";
             }
             leaveFocus
             {
             	setLocalVarInt "ui_highlight" ( 0 );
             }
+        }
+        itemDef
+        {
+            name "maplist"
+            rect -10 52 200 270 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_TOP
+            style WINDOW_STYLE_FILLED
+            border WINDOW_BORDER_FULL
+            borderSize 1
+            foreColor 0.69 0.69 0.69 1
+            borderColor 1 1 1 0.15
+            outlineColor 1 1 1 0.2
+            type ITEM_TYPE_LISTBOX
+            textFont UI_FONT_NORMAL
+            textAlignX 6
+            textScale 0.4
+            textStyle ITEM_TEXTSTYLE_SHADOWED
+            mouseEnter { setitemcolor maplist bordercolor 1 1 1 0.55  }
+            mouseExit  { setitemcolor maplist bordercolor 1 1 1 0.15  }
+            feeder     FEEDER_ALLMAPS
+            elementWidth 120
+            elementHeight 24
+            columns  1 2 190 25
+            visible 1  
         }
     }
 }

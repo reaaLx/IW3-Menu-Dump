@@ -10,8 +10,8 @@
 		blurWorld 7
 		onOpen
 		{
-			setLocalVarBool ui_hideBack 1;
-			setLocalVarBool ui_showApply 0;
+			setLocalVarBool "ui_hideBack" ( 1 );
+			setLocalVarBool "ui_showApply" ( 0 );
 			exec "setfromdvar ui_r_picmip			r_picmip";
 			exec "setfromdvar ui_r_picmip_bump		r_picmip_bump";
 			exec "setfromdvar ui_r_picmip_spec		r_picmip_spec";
@@ -19,7 +19,7 @@
 		}
 		onClose
 		{
-			setLocalVarBool ui_hideBack 0;
+			setLocalVarBool "ui_hideBack" ( 1 );
 		}
 		onESC
 		{

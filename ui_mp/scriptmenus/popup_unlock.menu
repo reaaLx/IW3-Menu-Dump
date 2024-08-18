@@ -17,7 +17,7 @@
             uiScript openMenuOnDvar "player_unlock_page" 1 "popup_unlock_page1"; 
             uiScript openMenuOnDvar "player_unlock_page" 2 "popup_unlock_page2"; 
             uiScript openMenuOnDvar "player_unlock_page" 3 "popup_unlock_page1"; 
-            hide highlighted_next; 
+            hide "highlighted_next"; 
             uiScript closeMenuOnDvar "ui_keep_unlock_open" 0 "popup_unlock"; 
         }
         onClose 
